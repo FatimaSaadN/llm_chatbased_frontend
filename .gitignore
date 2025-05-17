@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# === React Specific ===
+*.log
+*.lock
+*.cache
+*.tmp
+.cache/
+.eslintcache
+public/static/
