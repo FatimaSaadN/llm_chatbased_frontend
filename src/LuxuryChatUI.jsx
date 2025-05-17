@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from
 import landingPageImage from './landingpage.jpg';
 import './styles.css';
 
+const API_URL = 'https://llm-chatbased-backend.onrender.com';
+
 const ChatPage = () => {
   const location = useLocation();
   const [input, setInput] = useState("");
@@ -22,7 +24,7 @@ const ChatPage = () => {
   const refreshHistory = async () => {
     try {
       console.log("Refreshing chat history...");
-      const response = await fetch('http://localhost:5000/api/chat');
+      const response = await fetch(`${API_URL}/api/chat`);
       const data = await response.json();
       console.log("Received data:", data);
       if (data.chats) {
@@ -76,7 +78,7 @@ const ChatPage = () => {
 
       try {
         console.log("Saving chat:", chatData);
-        const response = await fetch('http://localhost:5000/api/chat', {
+        const response = await fetch(`${API_URL}/api/chat`, {
           method: currentChatId ? 'PUT' : 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -119,7 +121,7 @@ const ChatPage = () => {
   const handleHistoryClick = async (chatId) => {
     try {
       console.log("Loading chat:", chatId);
-      const response = await fetch(`http://localhost:5000/api/chat/${chatId}`);
+      const response = await fetch(`${API_URL}/api/chat/${chatId}`);
       const data = await response.json();
       console.log("Loaded chat data:", data);
       
@@ -190,7 +192,7 @@ const ChatPage = () => {
         };
 
         try {
-          const response = await fetch('http://localhost:5000/api/chat', {
+          const response = await fetch(`${API_URL}/api/chat`, {
             method: currentChatId ? 'PUT' : 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -212,7 +214,7 @@ const ChatPage = () => {
   const handleDeleteChat = async (chatId, e) => {
     e.stopPropagation(); // Prevent triggering the chat selection
     try {
-      const response = await fetch(`http://localhost:5000/api/chat/${chatId}`, {
+      const response = await fetch(`${API_URL}/api/chat/${chatId}`, {
         method: 'DELETE',
       });
       
@@ -611,7 +613,7 @@ export default function AppRouter() {
 
 const sendToBackend = async (message, provider = "openrouter", model) => {
   try {
-    const response = await fetch("http://localhost:5000/api/chat/completion", {
+    const response = await fetch(`${API_URL}/api/chat/completion`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
