@@ -1,3 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-tomorrow: "Tomorrow", sans-serif;
+  --font-josefin: "Josefin Sans", sans-serif;
+}
+
+/* Custom styles */
+.orbitron-regular {
+  font-family: var(--font-orbitron);
+  font-weight: 400;
+}
+
+.orbitron-medium {
+  font-family: var(--font-orbitron);
+  font-weight: 500;
+}
+
+.orbitron-bold {
+  font-family: var(--font-orbitron);
+  font-weight: 700;
+}
+
+.tomorrow-light {
+  font-family: var(--font-tomorrow);
+  font-weight: 300;
+}
+
+.tomorrow-regular {
+  font-family: var(--font-tomorrow);
+  font-weight: 400;
+}
+
+.tomorrow-medium {
+  font-family: var(--font-tomorrow);
+  font-weight: 500;
+}
+
+.tomorrow-bold {
+  font-family: var(--font-tomorrow);
+  font-weight: 700;
+}
+
+/* Add any other custom styles below */
